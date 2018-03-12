@@ -1,0 +1,17 @@
+== How to use this service
+
+==== Sign up
+
+  curl -H "Content-Type: application/json" -X POST -d '{
+      "username": "admin",
+      "password": "password"
+  }' http://localhost:8080/users/sign-up
+
+==== Log in
+
+  curl -i -H "Content-Type: application/json" -X POST -d '{
+      "username": "admin",
+      "password": "password"
+  }' http://localhost:8080/login
+  
+You receive a JWT as output.
