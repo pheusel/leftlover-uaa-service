@@ -14,4 +14,4 @@
       "password": "password"
   }' http://localhost:8080/login
   
-You receive a JWT as output.
+You will receive a JWT as output.
