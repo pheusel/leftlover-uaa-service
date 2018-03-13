@@ -5,7 +5,7 @@
   curl -H "Content-Type: application/json" -X POST -d '{
       "username": "admin",
       "password": "password"
-  }' http://localhost:8080/users/sign-up
+  }' http://localhost:8080/UAAService/signup
 
 ==== Log in
 
