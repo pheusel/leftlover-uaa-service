@@ -1,6 +1,5 @@
 package dhbw.leftlovers.service.uaa.service;
 
-import dhbw.leftlovers.service.uaa.entity.User;
 import dhbw.leftlovers.service.uaa.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,10 +18,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(username);
-		if (user == null) {
-			throw new UsernameNotFoundException(username);
-		}
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), emptyList());
+
+		return userRepository
+				.findByUsername(username)
+				.map(user -> {
+			return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), emptyList());
+		}).orElseThrow(() -> new UsernameNotFoundException(username));
 	}
 }
