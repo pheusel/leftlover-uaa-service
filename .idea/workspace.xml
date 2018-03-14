@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="471326ec-bced-44eb-b521-acc48a207266" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/usage.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/usage.adoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/exception/UsernameTakenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/exception/UsernameTakenException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/JWTAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/JWTAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/SecurityConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/SecurityConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/WebSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -29,7 +20,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebSecurity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WebSecurity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/WebSecurity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
@@ -49,6 +40,27 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-99">
+              <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -432,6 +444,7 @@
         <option value="$PROJECT_DIR$/docs/usage.adoc" />
         <option value="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/JWTAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/security/WebSecurity.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -622,12 +635,12 @@
       <updated>1520962097986</updated>
       <workItem from="1520962101844" duration="5261000" />
       <workItem from="1521019130677" duration="2311000" />
-      <workItem from="1521022813287" duration="1019000" />
+      <workItem from="1521022813287" duration="1316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8591000" />
+    <option name="totallyTimeSpent" value="8888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
@@ -770,16 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.2.4.RELEASE/a23ceb3dad5ae44a82c14bca35cff2628ee596fb/spring-security-web-4.2.4.RELEASE-sources.jar!/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -825,6 +828,23 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dhbw/leftlovers/service/uaa/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-99">
+          <caret line="16" column="15" lean-forward="true" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
         </state>
       </provider>
     </entry>
