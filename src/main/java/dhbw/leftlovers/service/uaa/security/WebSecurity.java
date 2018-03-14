@@ -35,8 +35,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
                 .anyRequest().authenticated()
                 .and()
-//                .addFilter(getJWTAuthenticationFilter())
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+                .addFilter(getJWTAuthenticationFilter())
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))
                 // this disables session creation on Spring Security
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -54,10 +53,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-/*    @Bean
+    @Bean
     public JWTAuthenticationFilter getJWTAuthenticationFilter() throws Exception {
         final JWTAuthenticationFilter filter = new JWTAuthenticationFilter(authenticationManager());
         filter.setFilterProcessesUrl("/UAAService/login");
         return filter;
-    }*/
+    }
 }

@@ -49,7 +49,5 @@ public class UserController {
         });
     }
 
-    // TODO: RequestBodies validieren (NotNull etc.)
-    // TODO: Auto-Login
-    // TODO: Login-Route auf Service umleiten
+    // TODO: Auto-Login + Token nach Signup
 }
