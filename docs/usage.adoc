@@ -2,7 +2,7 @@
 
 ==== Sign up
 
-  curl -H "Content-Type: application/json" -X POST -d '{
+  curl -i -H "Content-Type: application/json" -X POST -d '{
       "username": "admin",
       "password": "password"
   }' http://localhost:8080/UAAService/signup

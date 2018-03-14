@@ -10,19 +10,19 @@ import static java.util.Collections.emptyList;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	private UserRepository userRepository;
+    private UserRepository userRepository;
 
-	public UserDetailsServiceImpl(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		return userRepository
-				.findByUsername(username)
-				.map(user -> {
-			return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), emptyList());
-		}).orElseThrow(() -> new UsernameNotFoundException(username));
-	}
+        return userRepository
+                .findByUsername(username)
+                .map(user -> {
+                    return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), emptyList());
+                }).orElseThrow(() -> new UsernameNotFoundException(username));
+    }
 }

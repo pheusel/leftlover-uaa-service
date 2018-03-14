@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class UsernameTakenException extends RuntimeException {
 
     public UsernameTakenException(String userId) {
-        super("username " + userId + " is already assigned.");
+        super("username " + userId + " is already taken.");
     }
 }
