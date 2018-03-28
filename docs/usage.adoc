@@ -1,17 +1,57 @@
 == How to use this service
 
-==== Sign up
+==== How do I sign up?
 
-  curl -i -H "Content-Type: application/json" -X POST -d '{
-      "username": "admin",
-      "password": "password"
+  curl -i -H "Content-Type: application/json" -X POST -d '
+  {
+    "location":{
+                "city":
+                {
+                   "long_name":"Karlsruhe",
+                   "lat":48.9935599,
+                   "lng":8.401863999999932
+                },
+                "email":"max@example.com",
+                "username":"max",
+                "password":"password"
   }' http://localhost:8080/UAAService/signup
 
-==== Log in
+You will receive a JWT as output.
 
-  curl -i -H "Content-Type: application/json" -X POST -d '{
-      "username": "admin",
+==== How do I log in?
+
+  curl -i -H "Content-Type: application/json" -X POST -d '
+  {
+      "username": "max",
       "password": "password"
-  }' http://localhost:8080/login
+  }' http://localhost:8080/UAAService/login
   
 You will receive a JWT as output.
+
+==== How do I validate the JWT?
+
+    curl -i -H "Authorization: Bearer xxx.yyy.zzz" -X GET http://localhost:8080/UAAService/validate
+
+==== How do I get user information from the JWT?
+
+    curl -i -H "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3aXR0bXVuZGVyIiwiaWF0IjoxNTIyMjczMzM0LCJleHAiOjE1MjMxMzczMzR9.RpSPwU8epvWsG9iBV159WW5OP5JGXDBvp6_-Rz_TZn0plp1foCJzHnFqmT1f9hpLhRzn-Qqlq31ravLU_wRvuw" -X GET https://leftloversgateway.azurewebsites.net/UAAService/resolve
+
+==== How do I update a user?
+
+  curl -i -H "Authorization: Bearer xxx.yyy.zzz" -H "Content-Type: application/json" -X PUT -d '{
+      "username": "admin",
+      "password": "password",
+      "email": "namid@example.com"
+  }' http://localhost:8080/UAAService/{username}
+
+==== How do I delete a user?
+
+    curl -i -H "Authorization: Bearer xxx.yyy.zzz" -X DELETE localhost:8080/UAAService/{username}
+
+==== How do I check the health status?
+
+    localhost:8080/UAAService/health
+
+==== How do I get access to the api documentation?
+
+    localhost:8080/UAAService/swagger-ui.html

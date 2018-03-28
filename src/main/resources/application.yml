@@ -1,0 +1,17 @@
+security:
+ token:
+  secret: T6JY9jwA8sXJUJ8e
+spring:
+ datasource:
+  url: jdbc:mariadb://nrffbltw99v3vk0j.myfritz.net:3306/leftlovers
+  username: ll_db
+  password: Start123
+ jpa:
+  hibernate:
+   ddl-auto: validate
+server:
+  context-path: /UAAService
+endpoints:
+  cors:
+    allowed-origins: "*"
+    allowed-methods: "*"

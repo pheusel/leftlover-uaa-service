@@ -3,22 +3,22 @@ package dhbw.leftlovers.service.uaa.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "tbl_user")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long userid;
 
-    @NotNull(message = "The username must be entered.")
     private String username;
-
-    @NotNull(message = "The password must be entered.")
     private String password;
-}
+    private String email;
 
-// TODO: Stadt Email
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tbl_standort_standortid", nullable = false)
+    private Location city;
+}

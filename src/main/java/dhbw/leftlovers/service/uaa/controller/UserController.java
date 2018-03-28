@@ -1,53 +1,85 @@
 package dhbw.leftlovers.service.uaa.controller;
 
-import dhbw.leftlovers.service.uaa.entity.User;
-import dhbw.leftlovers.service.uaa.exception.UsernameTakenException;
+import dhbw.leftlovers.service.uaa.entity.*;
 import dhbw.leftlovers.service.uaa.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
+import javax.servlet.http.HttpServletRequest;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/UAAService")
 public class UserController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    private ModelMapper modelMapper;
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    public UserController(UserService userService,
-                          BCryptPasswordEncoder bCryptPasswordEncoder) {
+    @Autowired
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+
+    // JWT in body
 
     @PostMapping("/signup")
-    ResponseEntity<?> signUp(@RequestBody User user) {
-        this.checkIfUsernameIsPresent(user.getUsername());
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        User response = userService.save(user);
-
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(response.getId()).toUri();
-
-        return ResponseEntity.created(location).build();
+    TokenResponse signup(@RequestBody User user) {
+        return new TokenResponse(userService.signup(user));
     }
 
+    /*
 
-    private void checkIfUsernameIsPresent(String userId) {
-        this.userService.findByUsername(userId).ifPresent(user -> {
-            throw new UsernameTakenException(userId);
-        });
+    // JWT in header
+
+    @PostMapping("/signup")
+    ResponseEntity<?> signup(@RequestBody User user) {
+        String bearerToken = userService.signup(user);
+        return ResponseEntity.ok().header(HEADER_STRING, TOKEN_PREFIX + bearerToken).build();
     }
 
-    // TODO: Auto-Login + Token nach Signup
+    */
+
+    // JWT in body
+
+    @PostMapping("/login")
+    TokenResponse login(@RequestBody LoginUser loginUser) {
+        return new TokenResponse(userService.login(loginUser.getUsername(), loginUser.getPassword()));
+    }
+
+    /*
+
+    // JWT in header
+
+    @PostMapping("/login")
+    ResponseEntity<?> login(@RequestParam String username, @RequestParam String password) {
+        String bearerToken = userService.login(username, password);
+        return ResponseEntity.ok().header(HEADER_STRING, TOKEN_PREFIX + bearerToken).build();
+    }
+
+    */
+
+    @DeleteMapping("/{username}")
+    ResponseEntity<?> deleteUser(@PathVariable String username) {
+        userService.delete(username);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{username}")
+    ResponseEntity<?> editUser(@PathVariable String username, @RequestBody User input) {
+        userService.update(username, input);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/validate")
+    JWTValidationResponse validateToken(HttpServletRequest req) {
+        return new JWTValidationResponse(userService.validateToken(req));
+    }
+
+    @GetMapping("/resolve")
+    UserResponse resolveToken(HttpServletRequest req) {
+        return modelMapper.map(userService.getUserFromJWT(req), UserResponse.class);
+    }
 }
